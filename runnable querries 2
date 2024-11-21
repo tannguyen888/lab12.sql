@@ -9,3 +9,45 @@ SELECT max(due_date)
 --status and course id
 SELECT status,course_id 
 FROM assignments
+
+--1/select course and semester 
+select course_name, semester
+from courses
+
+--2/select course name, id, labtim on friday
+select course_name, course_id, lab_time
+from courses
+WHERE lab_time LIKE '%Fri%'
+
+--3/due date after current date 
+select title, due_date
+from assignments
+where due_date >'2024-11-21'
+
+
+
+--4/count assignment with status
+select *, COUNT(*)
+FROM assignments
+where status !='completed'
+GROUP BY status
+
+--5/ longest name 
+SELECT course_name
+FROM courses
+order by length('course_name')
+DESC
+LIMIT 1
+--6/upper case
+select upper(course_name)
+from courses
+--7/select due date in september
+select due_date, title
+from assignments
+WHERE due_date like '%09%'
+
+--8/no due date 
+select due_date, title
+from assignments
+WHERE due_date is NULL
+
