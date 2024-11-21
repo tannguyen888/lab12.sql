@@ -1,0 +1,11 @@
+ -- soon assignment
+SELECT min(due_date)
+ FROM assignments
+
+-- lastest assignment
+SELECT max(due_date) 
+ FROM assignments
+
+--status and course id
+SELECT status,course_id 
+FROM assignments
